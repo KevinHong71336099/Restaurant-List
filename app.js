@@ -1,7 +1,8 @@
 // include modules
-const express = reuqire("express");
+const express = require("express");
 const exphbs = require("express-handlebars");
 const app = express();
+const restaurantList = require("./restaurant.json");
 
 // define related variables
 const port = 3000;
@@ -12,7 +13,7 @@ app.set("view engine", "handlebars");
 
 // setting routes
 app.get("/", (req, res) => {
-  res.send(`My restaurant list on express`);
+  res.render("index");
 });
 
 // start and listen on express server
