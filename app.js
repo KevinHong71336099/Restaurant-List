@@ -4,6 +4,9 @@ const exphbs = require("express-handlebars");
 const app = express();
 const restaurantList = require("./restaurant.json");
 
+// set static files
+app.use(express.static('public'))
+
 // define related variables
 const port = 3000;
 
@@ -20,3 +23,4 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Express is listening on localhost:${port}`);
 });
+
