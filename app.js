@@ -35,11 +35,13 @@ app.get("/search", (req, res) => {
     category,
     rating
   );
+  let notFound = filterData.length ? false : true;
   res.render("index", {
     restaurants: filterData,
     keyword: keyword,
     category: category,
     rating: rating,
+    notFound: notFound,
   });
 });
 
