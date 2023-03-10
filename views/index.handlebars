@@ -31,16 +31,17 @@
             class="form-control"
             placeholder="輸入餐廳"
             aria-label="Restaurant Name..."
-            value=""
+            {{#if keyword}}value="{{keyword}}"{{/if}}
             aria-describedby="search-button"
           />
           <!-- category -->
           <div class="ml-2">
             <select
               id="search-categories"
-              name="categories"
+              name="category"
               class="form-control"
-              aria-label="select by categories"
+              aria-label="select by category"
+              {{#if category}}data-value={{ category }} {{/if}}
             >
               <option value="All" selected>所有分類</option>
               <option value="日本料理">日本料理</option>
@@ -58,6 +59,7 @@
               name="rating"
               class="form-control"
               aria-label="select by rating"
+              {{#if rating}}data-value={{ rating }} {{/if}}
             >
               <option value="0" selected>所有分數</option>
               <option value="4.5">4.5 星以上</option>
@@ -110,3 +112,5 @@
     </div>
   </div>
 </div>
+
+<script src="/javascripts/index.js"></script>

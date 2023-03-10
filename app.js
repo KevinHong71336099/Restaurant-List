@@ -2,6 +2,7 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const app = express();
+const filterRestaurants = require("./filterRestaurants.js");
 const restaurantList = require("./restaurant.json");
 
 // set static files
@@ -24,6 +25,22 @@ app.get("/restaurants/:restaurant_id", (req, res) => {
     return restaurant.id.toString() === req.params.restaurant_id;
   });
   res.render("show", { restaurant: restaurant });
+});
+
+app.get("/search", (req, res) => {
+  const { keyword, category, rating } = req.query;
+  const filterData = filterRestaurants(
+    restaurantList.results,
+    keyword,
+    category,
+    rating
+  );
+  res.render("index", {
+    restaurants: filterData,
+    keyword: keyword,
+    category: category,
+    rating: rating,
+  });
 });
 
 // start and listen on express server
