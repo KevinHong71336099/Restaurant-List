@@ -47,5 +47,5 @@ Express is listening on localhost:3000
 
 - Runtime: node @ 14.16.0
 - Framework: express @ 4.16.4
-- template Engine: express-handlebars @ 3.0.0
+- Template Engine: express-handlebars @ 3.0.0
 - Check package.json for other dependencies
